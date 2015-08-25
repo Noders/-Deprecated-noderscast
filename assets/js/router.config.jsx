@@ -1,16 +1,28 @@
 var React =  require('react');
 var Router =  require('react-router');
-var DefaultRoute = Router.DefaultRoute;
 var Route = Router.Route;
+var DefaultRoute = Router.DefaultRoute;
+var NotFoundRoute = Router.NotFoundRoute;
+var RouteHandler = Router.RouteHandler;
 
+var App = React.createClass({
+	render: function() {
+		return (
+				<div className="main-container">
+					<RouteHandler/>
+				</div>
+		);
+	}
+});
 
-//var Main = require('./default/main.jsx');
-//var Random = require('./random/random.jsx');
-//var About = require('./about/about.jsx');
+var Home = require('./home.jsx');
+var About = require('./about.jsx');
+var NotFound = require('./notfound.jsx');
 
 module.exports = (
-		<Route name="app" path="/" handler={Main}>
-			<DefaultRoute handler={Random} />
-			<Route name="about" path="about" handler={About}/>
-		</Route>
+	<Route handler={App} name="app" path="/">
+		<DefaultRoute handler={Home} />
+		<Route name="about" path="about" handler={About}/>
+		<NotFoundRoute handler={NotFound}/> 
+	</Route>
 );
