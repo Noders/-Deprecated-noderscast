@@ -8,7 +8,6 @@ var RouteHandler = Router.RouteHandler;
 
 
 var Home = require('./home.jsx');
-var Background = require('./background.jsx');
 var About = require('./about.jsx');
 var NotFound = require('./notfound.jsx');
 
@@ -16,7 +15,6 @@ var App = React.createClass({
 	render: function() {
 		return (
 			<div className="fullheight">
-				<Background/>
 				<div className="main-container">
 					<RouteHandler/>
 				</div>
