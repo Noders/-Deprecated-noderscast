@@ -10,12 +10,14 @@ var RouteHandler = Router.RouteHandler;
 var Home = require('./home.jsx');
 var About = require('./about.jsx');
 var NotFound = require('./notfound.jsx');
+var Background = require('./background.jsx');
 
 var App = React.createClass({
 	render: function() {
 		return (
 			<div className="fullheight">
-				<div className="main-container">
+				<Background/>
+				<div className="container">
 					<RouteHandler/>
 				</div>
 			</div>
@@ -25,7 +27,7 @@ var App = React.createClass({
 
 
 module.exports = (
-	<Route handler={App} name="app" path="/">
+	<Route handler={App} name="app" className="" path="/">
 		<DefaultRoute handler={Home} />
 		<Route name="about" path="about" handler={About}/>
 		<NotFoundRoute handler={NotFound}/> 
