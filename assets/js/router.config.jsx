@@ -15,8 +15,7 @@ var Background = require('./background.jsx');
 var App = React.createClass({
 	render: function() {
 		return (
-			<div className="fullheight">
-				<Background/>
+			<div className="fullheight site-wrapper">
 				<div className="container">
 					<RouteHandler/>
 				</div>
