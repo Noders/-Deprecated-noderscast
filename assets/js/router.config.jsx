@@ -1,6 +1,5 @@
 var React =  require('react');
 var Router =  require('react-router');
-require('./app.css');
 var Route = Router.Route;
 var DefaultRoute = Router.DefaultRoute;
 var NotFoundRoute = Router.NotFoundRoute;

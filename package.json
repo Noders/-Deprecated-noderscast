@@ -4,8 +4,10 @@
   "description": "Noderscast Repo",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "prebuild": "rm -rf index.html | rm -rf noderscast.*.*.*.js",
+    "build": "NODE_ENV=production webpack",
+    "yolo": "echo 'CREAR SCRIPT'"
   },
   "repository": {
     "type": "git",
@@ -18,6 +20,8 @@
   },
   "homepage": "https://github.com/Noders/noderscast#readme",
   "devDependencies": {
+    "autoprefixer-core": "^5.2.1",
+    "babel": "^5.8.23",
     "babel-core": "^5.8.3",
     "babel-loader": "^5.3.2",
     "bootstrap": "^3.3.5",
@@ -28,9 +32,12 @@
     "file-loader": "^0.8.4",
     "font-awesome": "^4.3.0",
     "font-awesome-webpack": "0.0.3",
+    "hjs-webpack": "^2.12.4",
     "jquery": "^2.1.4",
+    "json-loader": "^0.5.2",
     "node-libs-browser": "^0.5.2",
     "node-sass": "^3.1.2",
+    "postcss-loader": "^0.6.0",
     "raw-loader": "^0.5.1",
     "react": "^0.13.3",
     "react-fa": "^3.4.0",
@@ -42,6 +49,7 @@
     "stylus-loader": "^1.2.1",
     "url-loader": "^0.5.6",
     "webpack": "^1.10.1",
-    "webpack-dev-server": "^1.10.1"
+    "webpack-dev-server": "^1.10.1",
+    "yeticss": "^7.0.5"
   }
 }
