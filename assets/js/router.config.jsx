@@ -11,12 +11,14 @@ var Home = require('./home.jsx');
 var About = require('./about.jsx');
 var NotFound = require('./notfound.jsx');
 var Background = require('./background.jsx');
+var TopBar = require('./topbar.jsx');
 
 var App = React.createClass({
 	render: function() {
 		return (
 			<div className="fullheight site-wrapper">
-				<div className="container">
+				<TopBar/>
+				<div className="container site-container">
 					<RouteHandler/>
 				</div>
 			</div>
