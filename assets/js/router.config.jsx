@@ -6,11 +6,11 @@ var NotFoundRoute = Router.NotFoundRoute;
 var RouteHandler = Router.RouteHandler;
 
 
-var Home = require('./home.jsx');
+var Home = require('./home/home.jsx');
 var About = require('./about.jsx');
 var NotFound = require('./notfound.jsx');
-var Background = require('./background.jsx');
-var TopBar = require('./topbar.jsx');
+var TopBar = require('./topbar/topbar.jsx');
+var Footer = require('./footer/footer.jsx');
 
 var App = React.createClass({
 	render: function() {
@@ -20,6 +20,7 @@ var App = React.createClass({
 				<div className="container site-container">
 					<RouteHandler/>
 				</div>
+				<Footer/>
 			</div>
 		);
 	}
