@@ -54,7 +54,7 @@ module.exports = React.createClass({
       )
     });
     return (
-      <div className="block row display-table">
+      <div className="block col-xs-12 display-table">
         <div className="col-xs-12 text-center title"><h1>Hosts</h1></div>
         <div className="col-xs-12 col-md-8 col-md-offset-2">{presenters}</div>
       </div>

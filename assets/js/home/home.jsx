@@ -6,7 +6,7 @@ var Presenters = require('./hosts.jsx');
 var Title = React.createClass({
   render: function() {
     return (
-      <div className="row block display-table">
+      <div className="col-xs-12 block display-table">
         <div className="col-xs-12 text-center display-cell">
           <div className="col-xs-12 text-center">
             <h1 className="site-name">NodersCast</h1>

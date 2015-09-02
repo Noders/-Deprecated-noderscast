@@ -8,9 +8,6 @@ body {
     height: 100%;
 }
 
-.site-name {
-    font-family: 'Flamenco', cursive;
-}
 
 html,
 body {
@@ -645,47 +642,6 @@ textarea {
 /* Blocks/Widgets
 ----------------------------------------------------------------------------- */
 
-
-/* Logo, Site Name, Site Slogan
----------------------------------- */
-
-.logo {
-    margin: 10px 10px 10px 0;
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    -ms-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-}
-
-.logo,
-.site-name-and-slogan {
-    float: left;
-}
-
-.site-name {
-    font-size: 7em;
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    -ms-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-}
-
-.site-name a {
-    color: #ffffff;
-}
-
-.site-name a:hover {
-    text-decoration: none;
-}
-
-.site-slogan {
-    font-size: 1.3em;
-}
-.site-slogan img{
-    display: inline;
-}
 
 
 /* Testimonials

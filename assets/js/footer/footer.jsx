@@ -3,7 +3,7 @@ require('./footer.css');
 module.exports = React.createClass({
   render : function(){
     return  (
-      <div className="row footer">
+      <div className=" footer">
         <div className="col-xs-12">
           <div className="caption">
           	<h3 className="text-center">
