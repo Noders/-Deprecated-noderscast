@@ -1,10 +1,12 @@
   module.exports = (function() {
       var WebFontConfig = {
           google: {
-              families: ['Flamenco:400,300:latin']
+              families: ['Flamenco:400,300:latin','Raleway::latin']
           }
       };
+
       (function() {
+          console.log("asd");
           var wf = document.createElement('script');
           wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
               '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
