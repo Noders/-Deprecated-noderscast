@@ -13,7 +13,7 @@ render: function(){
 	                <span className="icon-bar"></span>
 	                <span className="icon-bar"></span>
 	            </button>
-	            <a className="navbar-brand" href="#"><img src="/assets/img/noders3-rectangle-150.png"/></a>
+	            <a className="navbar-brand" href="#"><img src="/assets/img/noders3-rectangle-white-150.png"/></a>
 	        </div>
 	        <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	            <ul className="nav navbar-nav navbar-right">
