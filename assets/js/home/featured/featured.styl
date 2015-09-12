@@ -1,46 +1,55 @@
 /*
  * featured.css
  */
+specialFontColor = #57BE30
+darkFontColor = #228c8b
+lightFontColor = rgba(255, 255, 255, 1)
 .featured
 	padding-top 40px
-	background rgba(0,0,0,0.4)
-	
+	color lightFontColor
+	.site-name 
+		display inline-block
+		background-color rgba(19, 17, 17, 0.5)
+		color lightFontColor
+		border-radius 5px
+		padding 25px	
+		font-family 'Fredericka the Great' cursive;
+		font-size 2em
+		font-size 7.5em
+		transition all 0.3s ease-in-out
+		a	
+			color #ffffff
+		a:hover
+			text-decoration none
+	.site-slogan
+		font-size 1.3em
+	.site-slogan img
+		display inline
 	.episode
-		padding-top 40px
-		padding-bottom 50px
+		padding-top 60px
+		padding-bottom 90px
 		.bajada
 			text-align left
+			color specialFontColor
 			font-family 'Raleway' sans-serif
 			font-weight bold
-			font-size 1.4em
+			font-size 1.6em
 		.title
 			font-family 'Raleway' sans-serif
 			font-weight 600
 			color rgba(245,245,245,1)
-			font-size 2em
-			line-height 1.75em
+			font-size 2.4em
+			line-height 1.5em
+			padding-bottom 20px
 			text-align left
 		.audio
 			width 100%
 			audio[controls]
 				width 100%
-				
-	.subscribe
-		padding-top 30px
-		padding-bottom 40px
-		position relative
-		bottom 0
-		border-top-left-radius 7px
-		border-top-right-radius 7px
-		background rgba(0,0,0,0.2)
-		.buttons
-			.link
-				font-size 1.6em
-				border-left-width 1px
-				border-left-style solid
-				border-left-color rgba(0,0,0,0.2)
-				padding-left 2px
-				padding-right 2px
-			.link:first-child
-				border-left none
-				
+.featured.parallax
+	background rgba(0,0,0,0.4)
+	background-image url('/assets/img/mic2_o_darker.jpg')
+	background-repeat no-repeat
+	background-size cover
+	background-position 50% 50%
+	background-attachment fixed

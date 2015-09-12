@@ -1,5 +1,5 @@
 var React = require('react');
-require('./home.css');
+require('./home.styl');
 
 var Featured    = require('./featured/featured.jsx');       
 var Episodes    = require('./episodes/episodes.jsx');
