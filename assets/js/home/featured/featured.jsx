@@ -1,20 +1,8 @@
 var React = require('react');
 require('./featured.styl');
 var ExecutionEnvironment = require('react/lib/ExecutionEnvironment');
+var Audio =  require('../audio/audio.jsx');
 
-var Audio = React.createClass({
-	render: function(){
-		return(
-			<div className="audio">
-				<audio controls>
-					<source src={this.props.url} type="audio/ogg"/>
-					<source src={this.props.url} type="audio/mpeg"/>
-					<p>Tu navegador no soporta audio html5</p>
-				</audio>
-			</div>
-		);
-	}
-});
 var Featured = React.createClass({
 	getInitialState: function() {
 		return {
@@ -36,7 +24,7 @@ var Featured = React.createClass({
 	},
 	render: function() {
 		return (
-			<div className="row text-center featured parallax">
+			<div className="col-xs-12 text-center featured parallax">
 				<div className="col-xs-12">
 					<h1 className="site-name">NodersCast</h1>
 					<p className="site-slogan">El podcast oficial de <a href="http://www.noders.com" target="_blank"><img src="/assets/img/noders3-rectangle-white-150.png"/></a></p>

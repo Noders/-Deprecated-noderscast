@@ -3,7 +3,7 @@ require('./socialnetworks.styl');
 var Socials = React.createClass({
   render:function(){
     return(
-      <div className="row subscribe">
+      <div className="col-xs-12 subscribe">
         <div className="col-md-8 col-md-offset-2 col-xs-12">
           <h2> Sucríbete </h2>
           <div className="buttons">
