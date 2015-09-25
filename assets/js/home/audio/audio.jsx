@@ -7,7 +7,8 @@ var Audio = React.createClass({
 		return {
 			playing : false,
 			time : 0,
-			timepercentage : "10%"
+			timepercentage : "10%",
+			loadpercentage : "20%",
 		};
 	},
 	componentDidMount: function(){
@@ -20,6 +21,9 @@ var Audio = React.createClass({
 					console.log("Pausing");
 			}
 		});
+	},
+	downloadAudio: function(){
+
 	},
 	playAudio: function() {
 		if(!this.state.playing){
