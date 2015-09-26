@@ -12,15 +12,26 @@ var Audio = React.createClass({
 		};
 	},
 	componentDidMount: function(){
+		var that = this;
  		podcast = new Howl({
  			urls:[this.props.url],
+ 			buffer:true,
 			onplay:function(){
 				console.log("Starting");
 			},
 			onpause:function(){
-					console.log("Pausing");
+				console.log("Pausing");
+			},
+			onload:function(){
+				changeState({totalTime:3337.7});
+			},
+			onend: function(){
+
 			}
 		});
+		var changeState = function(el){
+			that.setState(el);
+		};
 	},
 	downloadAudio: function(){
 
@@ -28,14 +39,23 @@ var Audio = React.createClass({
 	playAudio: function() {
 		if(!this.state.playing){
 			this.setState({playing : !this.state.playing});
-			podcast.play();
+			var that = this;
+			podcast.play(function(id){
+				if(!that.state.id){
+					that.setState({id:id})
+				}
+			});
 		}
+		
 	},
 	pauseAudio: function() {
 		if(this.state.playing){
 			this.setState({playing : !this.state.playing});
 			podcast.pause();
 		}	
+	},
+	show:function(){
+		debugger;
 	},
 	render: function(){
 		return(
@@ -46,6 +66,9 @@ var Audio = React.createClass({
 					</div>
 					<div className="control pause" onClick={this.pauseAudio}>
 						<i className="fa fa-fw fa-pause"/>
+					</div>
+					<div className="control shows" onClick={this.show}>
+						<i className="fa fa-fw fa-eye"/>
 					</div>
 				</div>
 					<svg className="stream" height="10px" width="100%">
