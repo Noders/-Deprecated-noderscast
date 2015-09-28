@@ -14,6 +14,12 @@
     "url": "git+https://github.com/Noders/noderscast.git"
   },
   "author": "fforres",
+   "contributors": [
+    {
+      "name": "Ramón chancay Ortega",
+      "email": "ramon.chancay@gmail.com"
+    }
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Noders/noderscast/issues"

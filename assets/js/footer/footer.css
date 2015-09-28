@@ -4,7 +4,7 @@
 
 .footer{
 	display: flex;
-	background-color: black;
+	background-color: #282d31;
 	padding-top:  20px;
 	padding-bottom: 15px;
 }
@@ -23,7 +23,13 @@
 
 .footer .social-links .icon p{
     font-size: 12px;
+    color: #228C8B;
 }
 
-.footer .social-links .icon:hover p{
+.footer .social-links .icon a{
+    color :  #228C8B;
+}
+
+.footer .social-links .icon a:hover{
+    cursor : pointer;
 }
