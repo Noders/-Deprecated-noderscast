@@ -6,56 +6,87 @@ var Audio = React.createClass({
 	getInitialState: function(){
 		return {
 			playing : false,
-			time : 0,
-			timepercentage : "10%",
-			loadpercentage : "20%",
+			currentPosition : {
+				percent:"0%",
+				number:0,
+				currentPercentage : function(){
+					return this.percent;
+				}
+			},
+			currentTime : function(podcastPos, currentState, reactComponent){
+				var _current = podcastPos*100/currentState.totalTime;
+				console.log(currentState.currentPosition);
+				currentState.currentPosition.number = _current.toFixed(2);
+				currentState.currentPosition.percent = _current.toFixed(0) + '%';
+				reactComponent.setState(currentState);
+				if(podcastPos == currentState.totalTime){
+					debugger;
+					clearInterval(currentState.timer);
+				}
+				return _current;
+			},
+			calculatePercentage : function(reactComponent){
+				var currentState = this;
+				if(!reactComponent.state.timer){
+					var currentTime = reactComponent.state.currentTime;
+					reactComponent.setState({timer : setInterval(function(){ 
+						currentTime(podcast.pos(),currentState,reactComponent);
+					}, 1000)});
+				}
+			},
+			setCurrentTime: function(newPosition, podcast, reactComponent){
+				podcast.pos(newPosition*reactComponent.state.totalTime,reactComponent.state.id);
+			}
 		};
 	},
 	componentDidMount: function(){
 		var that = this;
  		podcast = new Howl({
  			urls:[this.props.url],
+			volume:0.0,
  			buffer:true,
 			onplay:function(){
+				that.state.calculatePercentage(that);
 				console.log("Starting");
 			},
 			onpause:function(){
 				console.log("Pausing");
 			},
 			onload:function(){
-				changeState({totalTime:3337.7});
+				that.setState({totalTime:3337.7});
 			},
 			onend: function(){
 
 			}
 		});
-		var changeState = function(el){
-			that.setState(el);
-		};
 	},
 	downloadAudio: function(){
 
 	},
 	playAudio: function() {
 		if(!this.state.playing){
-			this.setState({playing : !this.state.playing});
 			var that = this;
+			that.setState({playing : true});
 			podcast.play(function(id){
 				if(!that.state.id){
-					that.setState({id:id})
+					that.setState({id:id});
 				}
 			});
 		}
-		
 	},
 	pauseAudio: function() {
 		if(this.state.playing){
-			this.setState({playing : !this.state.playing});
-			podcast.pause();
+			this.setState({playing : false});
+			podcast.pause(this.state.id);
 		}	
 	},
-	show:function(){
-		debugger;
+	setCurrentTime: function(evt){
+	    var e = evt.target;
+	    var parentTarget = evt.target.parentElement.offsetWidth;
+	    var dim = e.getBoundingClientRect();
+	    var x = evt.clientX - dim.left;
+	    var currentTime = x/parentTarget;
+	    this.state.setCurrentTime(currentTime,podcast,this);
 	},
 	render: function(){
 		return(
@@ -67,17 +98,18 @@ var Audio = React.createClass({
 					<div className="control pause" onClick={this.pauseAudio}>
 						<i className="fa fa-fw fa-pause"/>
 					</div>
-					<div className="control shows" onClick={this.show}>
-						<i className="fa fa-fw fa-eye"/>
-					</div>
 				</div>
-					<svg className="stream" height="10px" width="100%">
-						<line 	y1="0" y2="0" 
-								x1="0" x2="100%" 
-								style={{stroke:"rgb(30,30,30)","stroke-width":10}} />
-						<line 	y1="0" y2="0" 
-								x1="0" x2="10%"
-								style={{stroke:"rgb(255,0,0)","stroke-width":10}} />
+				<svg className="stream" height="10px" width="100%">
+					<line 	y1="0" y2="0" 
+							x1="0" x2="100%" 
+							style={{stroke:"rgb(30,30,30)","stroke-width":10}} />
+					<line 	y1="0" y2="0" 
+							x1="0" x2={this.state.currentPosition.currentPercentage()}
+							style={{stroke:"rgb(255,0,0)","stroke-width":10}} />
+					<line 	y1="0" y2="0" 
+							x1="0" x2="100%" 
+							onClick={this.setCurrentTime} 
+							style={{stroke:"rgba(0,0,0,0)","stroke-width":10}} />
 					</svg>
 				<audio className="hidden" controls>
 					<source src={this.props.url} type="audio/ogg"/>
