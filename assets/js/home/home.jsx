@@ -7,11 +7,18 @@ var Episodes    = require('./episodes/episodes.jsx');
 var Socials     = require('./socialnetworks/socialnetworks.jsx');
 var Presenters  = require('./hosts/hosts.jsx');
 
-module.exports =  
-React.createClass({
+
+//layout
+
+var TopBar = require('../topbar/topbar.jsx');
+var Footer = require('../footer/footer.jsx');
+
+
+module.exports =  React.createClass({
   render: function() {
     return (
-      <div>
+      <div className="row">
+        <TopBar/> 
         <div className="col-xs-12 text-center featured parallax">
           <Title/>
           <Featured/>
@@ -19,6 +26,7 @@ React.createClass({
         <Episodes limit="5"/>
         <Socials/>
         <Presenters/>
+        <Footer/>
       </div>
     );
   }

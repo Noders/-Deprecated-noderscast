@@ -1,0 +1,47 @@
+/*
+ * EpisodeLists.css
+ */
+hover_color = #228C8B
+
+transition()
+	webkit-transition background-color 300ms linear
+	moz-transition background-color 300ms linear
+	ms-transition background-color 300ms linear
+	o-transition background-color 300ms linear
+	transition background-color 300ms linear
+.listaepisodios
+	.episodio
+		display block
+
+		border-left-color black
+		border-left-style solid
+		border-left-width 1px
+		
+		border-right-color black
+		border-right-style solid
+		border-right-width 1px
+		
+		border-top-color black
+		border-top-style solid
+		border-top-width 1px
+		
+		padding-top 20px
+		padding-bottom 15px
+		
+		cursor pointer
+		&:hover
+			background rgb(40, 45, 49)
+			color white
+		transition()
+		.duration
+			font-size 0.78em
+		.date
+			font-size 0.78em
+		a
+			color hover_color
+			&:hover
+				text-decoration none
+	.episodio:last-child
+		border-bottom-color black
+		border-bottom-style solid
+		border-bottom-width 1px

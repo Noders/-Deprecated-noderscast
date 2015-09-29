@@ -7,10 +7,6 @@ require('font-awesome-webpack');
 
 
 var React = require('react');
-var Router = require('react-router');
-var routes = require('./assets/js/router.config.jsx');
-Router.run(routes, Router.HashLocation, function(Handler){
-	React.render( <Handler/> , document.body);
-});
+React.render((require('./assets/js/router.config.jsx')),document.body);
 
 

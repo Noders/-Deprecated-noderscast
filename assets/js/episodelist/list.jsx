@@ -1,5 +1,6 @@
 var React = require('react');
-var episodiosArr = require('../../../api/capitulos.jsx');
+var episodiosArr = require('../../api/capitulos.jsx');
+require('./list.styl');
 var Episode = React.createClass({
   render:function(){
       var d = new Date(this.props.pubdate);
@@ -36,7 +37,7 @@ var Episodes = React.createClass({
             />);
     }
     return(
-      <div>
+      <div className="listaepisodios">
         {eps}
       </div>
     );

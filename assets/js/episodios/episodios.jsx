@@ -1,6 +1,6 @@
 var React = require('react');
 require('./episodios.styl');
-var Episodes   = require('../home/episodes/list.jsx');
+var Episodes   = require('../episodelist/list.jsx');
 
 module.exports =  React.createClass({
 	componentDidMount: function() {
