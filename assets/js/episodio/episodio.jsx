@@ -1,8 +1,6 @@
 var React = require('react');
 var Featured = require('../home/featured/featured.jsx');
-var Autolinker = require( 'autolinker' );
 require('./episodio.styl');
-
 
 var linkify = function (inputText) {
     var replacedText, replacePattern1, replacePattern2, replacePattern3;
