@@ -16,7 +16,7 @@ React.createClass({
           <Title/>
           <Featured/>
         </div>
-        <Episodes/>
+        <Episodes limit="5"/>
         <Socials/>
         <Presenters/>
       </div>

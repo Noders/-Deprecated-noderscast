@@ -1,37 +1,23 @@
 var React = require('react');
 require('./episodios.styl');
-var episodio = React.createClass({
-	render: function(){
-		return (
-			<div className="episodio">
-			
-			</div>
-		)
-	}
-});
+var Episodes   = require('../home/episodes/list.jsx');
+
 module.exports =  React.createClass({
 	componentDidMount: function() {
-	    function createArrs(arrs){
-	    	var arr = [];
-	    	arrs.each(function(el,i,as){
-				arr.push({
-					title:$(i).find("title").text(),
-					url:'',
-					pubdate:$(i).find('pubdate').text(),
-					content:$(i).find("content\\:encoded").text(),
-					sumary:$(i).find("ITUNES\\:summary").text(),
-					duration:$(i).find("ITUNES\\:duration").text()
-				});
-			})
-	    }
+	    
 	},
-  render: function() {
-        return (
-        	<div className="col-xs-12">
-        		<h1>Capítulos</h1>
-	        	<div className="col-xs-12 col-md-8 col-md-offset-2 capitulos">
-	    		</div>
-    		</div>
-        );
+	render: function() {
+		return (
+			<div className="listado">
+				<div className="col-xs-12 text-center featured parallax">
+					<div className="col-xs-12 col-md-8 col-md-offset-2">
+						<h3 className="title"><span className="text">Listado de Episodios</span> <i className="icon fa fa-fw fa-microphone"></i> </h3>
+					</div>
+				</div>
+				<div className="episodios col-xs-8 col-xs-offset-2 text-center">
+					<Episodes/>
+				</div>
+			</div>
+		);
   }
 });

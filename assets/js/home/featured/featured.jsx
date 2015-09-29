@@ -15,7 +15,7 @@ var Featured = React.createClass({
 		};
 	},
 	componentDidMount : function(){
-		if(this.props.defaultEpisode){
+		if(this.props && this.props.defaultEpisode){
 			var ob = this.state;
 			ob.url = this.props.defaultEpisode.url;
 			ob.title = this.props.defaultEpisode.title;
