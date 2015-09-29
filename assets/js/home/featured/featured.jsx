@@ -1,3 +1,6 @@
+module.exports = Featured;
+
+
 var React = require('react');
 require('./featured.styl');
 var ExecutionEnvironment = require('react/lib/ExecutionEnvironment');
@@ -6,34 +9,35 @@ var Audio =  require('../audio/audio.jsx');
 var Featured = React.createClass({
 	getInitialState: function() {
 		return {
-			url: 'http://d1xuhndp8unoax.cloudfront.net/EP06.mp3',
-			title: 'Noderscast - E06 - [En Vivo] Hablemos de Seniority, con Fernando Larragaña'
+			message: '',
+			url: '',
+			title: ''
 		};
 	},
-	componentDidMount: function() {
-		if (ExecutionEnvironment.canUseDOM) {
-			document.documentElement.addEventListener('scroll', this.handleScroll);
+	componentDidMount : function(){
+		if(this.props.defaultEpisode){
+			var ob = this.state;
+			ob.url = this.props.defaultEpisode.url;
+			ob.title = this.props.defaultEpisode.title;
+			ob.message = "Episodio Nº "+this.props.defaultEpisode.id
+			this.setState(ob);
+		}else{
+			var el = require('../../../api/capitulos.jsx')[0];
+			var ob = this.state;
+			ob.url = el.url?el.url:ob.url;
+			ob.title = el.title?el.title:ob.title;
+			ob.message = "Episodio Destacado";
+			this.setState(ob);
 		}
-	},
-	componentWillUnmount() {
-    	document.documentElement.removeEventListener('scroll', this.handleScroll);
-  	},
-	handleScroll() {
-		console.log(this.refs.nav.getDOMNode())
-		this.refs.nav.getDOMNode().style.top = document.documentElement.scrollTop + 'px';
+		
+
 	},
 	render: function() {
 		return (
-			<div className="col-xs-12 text-center featured parallax">
-				<div className="col-xs-12">
-					<h1 className="site-name">NodersCast</h1>
-					<p className="site-slogan">El podcast oficial de <a href="http://www.noders.com" target="_blank"><img src="/assets/img/noders3-rectangle-white-150.png"/></a></p>
-				</div>
-				<div className="episode col-xs-12 col-md-8 col-md-offset-2">
-					<p className="bajada">Episodio destacado</p>
-					<h3 className="title">{this.state.title}</h3>
-					<Audio url={this.state.url}/>
-				</div>
+			<div className="episode col-xs-12 col-md-8 col-md-offset-2">
+				<p className="bajada">{this.state.message} <i className="fa fa-fw fa-microphone"></i> </p>
+				<h3 className="title">{this.state.title}</h3>
+				<Audio url={this.state.url}/>
 			</div>
 		);
 	}

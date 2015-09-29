@@ -1,11 +1,9 @@
 var React = require('react');
-var feedParser = require('feedparser');
-var NodersFeed = 'http://noderscast.noders.com/feed/podcast';
-
-var capitulo = React.createClass({
+require('./episodios.styl');
+var episodio = React.createClass({
 	render: function(){
 		return (
-			<div className="capitulo">
+			<div className="episodio">
 			
 			</div>
 		)
@@ -13,18 +11,6 @@ var capitulo = React.createClass({
 });
 module.exports =  React.createClass({
 	componentDidMount: function() {
-        $.ajax({
-	        type: "GET",
-	        url: NodersFeed,
-            crossDomain: true,
-	        dataType: 'application/x-www-form-urlencoded',
-	        error: function(err){
-	        	createArrs($(err.responseText).find("item"))
-	        },
-	        success: function(xml){
-	        	console.log(xml.responseText)
-	        }
-	    });
 	    function createArrs(arrs){
 	    	var arr = [];
 	    	arrs.each(function(el,i,as){

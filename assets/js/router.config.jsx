@@ -12,7 +12,8 @@ var TopBar = require('./topbar/topbar.jsx');
 var Footer = require('./footer/footer.jsx');
 
 //routes;
-var Capitulos = require('./capitulos/capitulos.jsx');
+var Episodio = require('./episodio/episodio.jsx');
+var Episodios = require('./episodios/episodios.jsx');
 var NotFound = require('./notfound.jsx');
 
 var App = React.createClass({
@@ -35,7 +36,8 @@ var App = React.createClass({
 module.exports = (
 	<Route handler={App} name="app" className="" path="/">
 		<DefaultRoute handler={Home} />
-		<Route name="capitulos" path="capitulos" handler={Capitulos}/>
+		<Route name="episodio" path="episodios/:episodioId" handler={Episodio}></Route>
+		<Route name="episodios" path="episodios" handler={Episodios}/>
 		<NotFoundRoute handler={NotFound}/> 
 	</Route>
 );
