@@ -1,5 +1,7 @@
 var React = require('react');
 var Featured = require('../home/featured/featured.jsx');
+var TopBar = require('../topbar/topbar.jsx');
+var Footer = require('../footer/footer.jsx');
 require('./episodio.styl');
 
 var linkify = function (inputText) {
@@ -40,7 +42,8 @@ module.exports =  React.createClass({
 	},
   	render: function() {
         return (
-        	<div className="episodio">
+        	<div className="row episodio fullheight">
+				<TopBar/>
 	        	<div className="col-xs-12 text-center featured parallax">
 	        		<Featured id={this.props.params.episodioId} defaultEpisode={this.state.defaultEpisode}/>
 				</div>
@@ -49,6 +52,7 @@ module.exports =  React.createClass({
 	        		<div className="content" dangerouslySetInnerHTML={{__html:this.state.defaultEpisode.parsedSumary}}></div>
 	        		<div className="saludos text-center">El equipo de NodersCast</div>
 	    		</div>
+				<Footer/>
         	</div>
         );
   }

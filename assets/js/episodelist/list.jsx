@@ -37,7 +37,7 @@ var Episodes = React.createClass({
             />);
     }
     return(
-      <div className="listaepisodios">
+      <div className="listaepisodios col-xs-12 no-padding">
         {eps}
       </div>
     );

@@ -4,7 +4,7 @@ module.exports = Featured;
 var React = require('react');
 require('./featured.styl');
 var ExecutionEnvironment = require('react/lib/ExecutionEnvironment');
-var Audio =  require('../audio/audio.jsx');
+var Audio =  require('../../audio/audio.jsx');
 
 var Featured = React.createClass({
 	getInitialState: function() {
@@ -14,7 +14,7 @@ var Featured = React.createClass({
 			title: ''
 		};
 	},
-	componentDidMount : function(){
+	componentWillMount : function(){
 		if(this.props && this.props.defaultEpisode){
 			var ob = this.state;
 			ob.url = this.props.defaultEpisode.url;
@@ -29,12 +29,10 @@ var Featured = React.createClass({
 			ob.message = "Episodio Destacado";
 			this.setState(ob);
 		}
-		
-
 	},
 	render: function() {
 		return (
-			<div className="episode col-xs-12 col-md-8 col-md-offset-2">
+			<div className="episode col-xs-12 col-md-8 col-md-offset-2 animated fadeInUp delay-1s">
 				<p className="bajada">{this.state.message} <i className="fa fa-fw fa-microphone"></i> </p>
 				<h3 className="title">{this.state.title}</h3>
 				<Audio url={this.state.url}/>

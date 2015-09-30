@@ -1,4 +1,6 @@
 var React = require('react');
+var {Lifecycle, RouteContext} = require('react-router');
+
 require('./home.styl');
 
 var Title       = require('./title/title.jsx');       

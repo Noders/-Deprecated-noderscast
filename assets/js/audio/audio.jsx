@@ -20,7 +20,6 @@ var Audio = React.createClass({
 				currentState.currentPosition.percent = _current.toFixed(0) + '%';
 				reactComponent.setState(currentState);
 				if(podcastPos == currentState.totalTime){
-					debugger;
 					clearInterval(currentState.timer);
 				}
 				return _current;
@@ -39,11 +38,10 @@ var Audio = React.createClass({
 			}
 		};
 	},
-	componentDidMount: function(){
+	componentWillMount: function(){
 		var that = this;
  		podcast = new Howl({
  			urls:[this.props.url],
-			volume:0.0,
  			buffer:true,
 			onplay:function(){
 				that.state.calculatePercentage(that);
@@ -59,9 +57,6 @@ var Audio = React.createClass({
 
 			}
 		});
-	},
-	downloadAudio: function(){
-
 	},
 	playAudio: function() {
 		if(!this.state.playing){
