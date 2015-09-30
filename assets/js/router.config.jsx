@@ -1,7 +1,8 @@
 var React =  require('react');
 var {Router, Route, Link} =  require('react-router');
-require('../css/app.css');
+var History =  require('history/lib/createHashHistory');
 
+require('../css/app.css');
 //routes;
 var Home = require('./home/home.jsx');
 var Episodio = require('./episodio/episodio.jsx');
@@ -25,13 +26,15 @@ var App = React.createClass({
 });
 
 var a = (
-	<Router>
+	<Router history={History({
+  queryKey: false
+})}>
 		<Route path="/"  component={Home}>
-			<Route path="episodios" component={Episodios}>
-				<Route path="/episodio/:episodioId" component={Episodio}/>
-			</Route>
-			<Route path="*" component={NotFound}/>
 		</Route>
+		<Route path="episodios" component={Episodios}>
+		</Route>
+			<Route path="episodios/:episodioId" component={Episodio}/>
+		<Route path="*" component={NotFound}/>
 	</Router>
 );
 module.exports = a;
