@@ -7,6 +7,6 @@ require('font-awesome-webpack');
 require('animate.css/animate.min.css')
 
 var React = require('react');
-React.render((require('./assets/js/router.config.jsx')),document.body);
+React.render((require('./assets/router.config.jsx')),document.body);
 
 

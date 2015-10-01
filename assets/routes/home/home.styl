@@ -1,0 +1,33 @@
+/*
+ * home.css
+ */
+specialFontColor = #57BE30
+darkFontColor = #228c8b
+lightFontColor = rgba(255, 255, 255, 1)
+
+.block
+    padding-top 50px
+    padding-bottom 50px
+.featured
+	color lightFontColor
+	&::before
+		content ""
+		position absolute
+		background-color rgba(52, 61, 70, 0.4)
+		width 100%
+		height 100%
+		top 0
+		left 0
+	
+.featured.parallax
+	background rgba(0,0,0,0.4)
+	background-image url('/assets/img/mic2_o_darker.jpg')
+	background-repeat no-repeat
+	background-size cover
+	background-position 50% 50%
+	background-attachment fixed
+@media (max-width:768px) {
+    .site-name {
+        font-size: 4em;
+    }
+}
