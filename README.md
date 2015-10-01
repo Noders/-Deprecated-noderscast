@@ -1,7 +1,7 @@
-# [noderscast](www.noderscast.com) ![alt text](../master/assets/img/noders3-rectangle-150.png)
+# [Noderscast](www.noderscast.com) 
 
 
-Sitio oficial de Noderscast, el podcast oficial de [Noders](www.noders.com ""Noders Website")
+Sitio oficial de Noderscast, el podcast oficial de ![Noders](../master/assets/img/noders3-rectangle-150.png)
 > 
 
 ## Instrucciones
