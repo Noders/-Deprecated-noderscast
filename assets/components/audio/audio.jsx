@@ -1,7 +1,40 @@
 var React = require('react');
 require('./audio.styl');
 var {Howler, Howl} = require('howler');
+var moment = require('moment');
 var podcast = null;
+
+var playControl = React.createClass({
+	render:function(){
+		return(
+			<div className="control play" onClick={this.playAudio}>
+				<i className="fa fa-fw fa-play"/>
+			</div>
+		)
+	}
+})
+
+var toggleControl = React.createClass({
+	render:function(){
+		return(
+			<div className="control toggle" onClick={this.toggleAudio}>
+				<i className={this.toggleClass()}/>
+			</div>
+		)
+	}
+})
+
+var pauseControl = React.createClass({
+	render:function(){
+		return(
+			<div className="control pause" onClick={this.pauseAudio}>
+				<i className="fa fa-fw fa-pause"/>
+			</div>
+		)
+	}
+})
+			
+
 var Audio = React.createClass({
 	getInitialState: function(){
 		return {
@@ -10,11 +43,24 @@ var Audio = React.createClass({
 			totalTime:0,
 			currentPercentage : function(){
 				if(this.totalTime !== 0){
-					var percentage = this.currentTime*100/this.totalTime;
-					return percentage+"%";
+					var percentage = this.currentTime/this.totalTime;
+					return percentage*100+"%";
 				}else{
 					return 0;
 				}
+			},
+			secondsToHms : function(d) {
+				d = Number(d);
+				var h = Math.floor(d / 3600);
+				var m = Math.floor(d % 3600 / 60);
+				var s = Math.floor(d % 3600 % 60);
+				return ((h > 0 ? h + ":" + (m < 10 ? "0" : "") : "") + m + ":" + (s < 10 ? "0" : "") + s); 
+			},
+			getFormatedTotalTime : function(reactComponent){
+				return this.secondsToHms(reactComponent.state.totalTime);
+			},
+			getFormatedCurrentTime : function(thePodcast){
+				return this.secondsToHms(thePodcast.pos());
 			},
 			startTimer:function(podcastPos, reactComponent){
 				if(!reactComponent.state.timer){
@@ -39,7 +85,6 @@ var Audio = React.createClass({
  		podcast = new Howl({
  			urls:[this.props.url],
  			buffer:true,
- 			volume:0.0,
 			onplay:function(){
 				//console.log("Playing");
 			},
@@ -90,6 +135,12 @@ var Audio = React.createClass({
 			return 'play';
 		}
 	},
+	totalFormatedTime : function(){
+		return this.state.getFormatedTotalTime(this);
+	},
+	currentFormatedTime: function(){
+		return this.state.getFormatedCurrentTime(podcast);
+	},
 	toggleClass: function(){
 		return "fa fa-fw fa-"+this.currentState();
 	},
@@ -105,16 +156,11 @@ var Audio = React.createClass({
 		return(
 			<div className="audio col-xs-12">
 				<div className="controls">
-					<div className="control play" onClick={this.playAudio}>
-						<i className="fa fa-fw fa-play"/>
-					</div>
-					<div className="control pause" onClick={this.pauseAudio}>
-						<i className="fa fa-fw fa-pause"/>
-					</div>
 					<div className="control toggle" onClick={this.toggleAudio}>
 						<i className={this.toggleClass()}/>
 					</div>
 				</div>
+				<div className="timer">{this.currentFormatedTime()+" - "+this.totalFormatedTime()}</div>
 				<svg className="stream" height="10px" width="100%">
 					<line 	y1="0" y2="0" 
 							x1="0" x2="100%" 
