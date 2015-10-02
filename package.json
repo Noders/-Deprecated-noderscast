@@ -1,12 +1,12 @@
 {
   "name": "noderscast",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Noderscast Repo",
   "main": "index.js",
   "scripts": {
     "start": "npm install | webpack-dev-server",
-    "prebuild": "rm -rf index.html | rm -rf noderscast.*.*.*.js",
-    "build": "NODE_ENV=production webpack",
+    "prebuild": "rm -rf index.html | rm -rf noderscast.*.*.*.js | rm -rf *.woff2 |  rm -rf *.woff | rm -rf *.eot | rm -rf *.svg | rm -rf *.ttf | rm -rf noderscast.*.*.*.css",
+    "build": "npm run-script prebuild | NODE_ENV=production webpack",
     "yolo": "echo 'CREAR SCRIPT'"
   },
   "repository": {
@@ -45,6 +45,7 @@
     "howler": "^1.1.26",
     "jquery": "^2.1.4",
     "json-loader": "^0.5.2",
+    "moment": "^2.10.6",
     "node-libs-browser": "^0.5.2",
     "node-sass": "^3.1.2",
     "postcss-loader": "^0.6.0",
