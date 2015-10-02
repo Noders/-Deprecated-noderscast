@@ -9,31 +9,13 @@ var Episodio = require('./routes/episodio/episodio.jsx');
 var Episodios = require('./routes/episodios/episodios.jsx');
 var NotFound = require('./routes/notfound/notfound.jsx');
 
-var App = React.createClass({
-	render: function() {
-		return (
-			<div>
-				<TopBar/>
-				<div>
-					<div className="row site-container">
-						<RouteHandler/>
-					</div>
-					<Footer/>
-				</div>
-			</div>
-		);
-	}
-});
-
 var a = (
 	<Router history={History({
 			queryKey: false
 		})}>
-		<Route path="/"  component={Home}>
-		</Route>
-		<Route path="episodios" component={Episodios}>
-		</Route>
-			<Route path="episodios/:episodioId" component={Episodio}/>
+		<Route path="/"  component={Home}/>
+		<Route path="episodios" component={Episodios}/>
+		<Route path="episodios/:episodioId" component={Episodio}/>
 		<Route path="*" component={NotFound}/>
 	</Router>
 );

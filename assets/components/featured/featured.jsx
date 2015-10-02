@@ -30,9 +30,11 @@ var Featured = React.createClass({
 	render: function() {
 		return (
 			<div className="episode col-xs-12 col-md-8 col-md-offset-2 animated fadeInUp delay-1s">
-				<p className="bajada">{this.state.message} <i className="fa fa-fw fa-microphone"></i> </p>
-				<h3 className="title">{this.state.title}</h3>
-				<Audio url={this.state.url}/>
+				<p className="bajada"> {this.state.message} 
+					<i className="fa fa-fw fa-microphone"/>
+				</p>
+				<h3 className="title"> {this.state.title} </h3>
+				<Audio url={this.state.url} />
 			</div>
 		);
 	}

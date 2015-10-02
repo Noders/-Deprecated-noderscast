@@ -8,11 +8,11 @@ var Episodes = React.createClass({
       <div className="episodios col-xs-8 col-xs-offset-2 text-center">
         <h2 className="text-left title">Episodios Anteriores <a href="#/episodios" className="verMas"><small>Ver todos los episodios</small></a></h2>
         <List limit="5"/>
-        <div className="col-xs-12 no-padding futer" href="#/episodios">
+        <div className="col-xs-12 no-padding futer">
         	<a href="#/episodios" className="link">
         		Ver todos los episodios <i className="fa fa-fe fa-chevron-circle-down"/>
-    		</a>
-    	</div>
+    		  </a>
+        </div>
       </div>
     );
   }
