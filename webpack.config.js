@@ -1,5 +1,5 @@
 var getConfig = require('hjs-webpack');
-
+var version = require('./package.json').version;
 module.exports = getConfig({
     in: 'index.jsx',
     out:'',
@@ -28,14 +28,14 @@ module.exports = getConfig({
 					'<head>'+
 						'<meta charset="utf-8"/>'+
 						'<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>'+
-						'<link rel="stylesheet" href="/noderscast.1.0.0.css"/>'+
+						'<link rel="stylesheet" href="/noderscast.'+version+'.css"/>'+
 						"<link href='https://fonts.googleapis.com/css?family=Flamenco:400,300|Raleway:400,100|Fredericka+the+Great' rel='stylesheet' type='text/css'>"+
 					'</head>'+
 					'<body>'+
 					'</body>'+
-					'<script src="/noderscast.1.0.0.js"></script>'+
-					'<script src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>'
+					'<script src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>'+
+					'<script src="/noderscast.'+version+'.js"></script>'
 			};
 		}
 	}
-})
+});
