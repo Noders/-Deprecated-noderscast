@@ -17,7 +17,7 @@ render: function(){
 	        </div>
 	        <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	            <ul className="nav navbar-nav navbar-right">
-	                <li><a href="#/capitulos">Capítulos</a></li>
+	                <li><a href="#/episodios">Episodios</a></li>
 	                <li className="dropdown">
 	                    <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Escúchanos <i className="fa fa-fw fa-volume-up"></i><span className="caret"></span></a>
 	                    <ul className="dropdown-menu">

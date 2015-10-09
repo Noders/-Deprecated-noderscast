@@ -42,7 +42,7 @@ module.exports =  React.createClass({
 	},
   	render: function() {
         return (
-        	<div className="row episodio fullheight">
+        	<div className="episodio fullheight">
 				<TopBar/>
 	        	<div className="col-xs-12 text-center featured parallax">
 	        		<Featured id={this.props.params.episodioId} defaultEpisode={this.state.defaultEpisode}/>

@@ -6,7 +6,7 @@ require('./notfound.styl');
 module.exports =  React.createClass({
   render: function() {
         return (
-        	<div className="row notfound fullheight">
+        	<div className="notfound fullheight">
 				<div className="col-xs-12 text-center featured parallax fullheight">
 					<TopBar/>
 					<div className="col-xs-12 fullheight table">

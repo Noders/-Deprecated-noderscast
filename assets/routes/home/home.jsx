@@ -15,7 +15,7 @@ require('./home.styl');
 module.exports =  React.createClass({
   render: function() {
     return (
-      <div className="row">
+      <div>
         <TopBar/> 
         <div className="col-xs-12 text-center featured parallax">
           <Title/>
