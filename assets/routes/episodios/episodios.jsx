@@ -11,7 +11,7 @@ module.exports =  React.createClass({
 	},
 	render: function() {
 		return (
-			<div className="row listado fullheight">
+			<div className="listado fullheight">
 				<TopBar/>
 				<div className="col-xs-12 text-center featured parallax">
 					<Title/>
