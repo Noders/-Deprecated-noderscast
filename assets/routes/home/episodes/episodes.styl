@@ -1,19 +1,42 @@
 /*
  *Episodes stylus
  */
-
+specialFontColor = #57BE30
+linkFontColor = #55acee
 .episodios
 	padding-top 60px
-	padding-bottom 30px
+	padding-bottom 40px
 	.title
 		padding-bottom 20px
+		span
+			color specialFontColor
+			font 300 1.5em "Helvetica Neue", sans-serif
 		.verMas
-			font-size 0.9em
+			font-size 0.7em
 			cursor pointer
 			float right
+			-webkit-transition: all 0.2s ease-in-out;
+			-moz-transition: all 0.2s ease-in-out;
+			-o-transition: all 0.2s ease-in-out;
+			-ms-transition: all 0.2s ease-in-out;
+			transition: all 0.2s ease-in-out;
+			color linkFontColor
+			.text
+				color linkFontColor
+		.verMas:hover .text
+			color green
+
 	.futer
-		font-size 1.3em
-		padding-top 40px
+		font-size 1.4em
+		padding-top 50px
 		padding-bottom 10px
-		a
+		.link
 			cursor pointer
+			-webkit-transition: all 0.2s ease-in-out;
+			-moz-transition: all 0.2s ease-in-out;
+			-o-transition: all 0.2s ease-in-out;
+			-ms-transition: all 0.2s ease-in-out;
+			transition: all 0.2s ease-in-out;
+			color linkFontColor
+		.link:hover
+			color green

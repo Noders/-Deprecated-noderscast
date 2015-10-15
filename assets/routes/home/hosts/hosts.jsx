@@ -1,11 +1,12 @@
 var React = require('react');
+require('./hosts.styl');
 var hosts = [
   {
     nombre:"Felipe",
     apodo:"fforres",
     img:"https://pbs.twimg.com/profile_images/605959417935204352/qQGF7U7m.png",
     twitter:"fforres",
-    descripcion:"Lorem ipsum dolor sit luca melón con vino pichanga coscacho ni ahí peinar la muñeca chuchada al chancho achoclonar. Chorrocientos pituto ubicatex huevo duro bolsero cachureo el hoyo del queque en cana huevón el año del loly hacerla corta impeque."
+    descripcion:"Loves balls"
   },
   {
     nombre:"Nicolas",
@@ -30,13 +31,12 @@ var Presenter = React.createClass({
         <div className="">
           <img src={this.props.img} alt={this.props.twitter} className="img-rounded"/>
           <div className="caption">
-            <a className="" href={"http://www.twitter.com/"+this.props.twitter} target="_blank">
+            <a className="" href={"http://twitter.com/"+this.props.twitter} target="_blank">
               <h3 className="text-center">
                 <span>{this.props.nombre}</span> 
                 <i className="fa fa-fw fa-twitter"/>
               </h3>
             </a>
-            <p className="hidden">{this.props.descripcion}</p>
           </div>
         </div>
       </div>
@@ -58,8 +58,8 @@ module.exports = React.createClass({
       );
     });
     return (
-      <div className="block col-xs-12 display-table">
-        <div className="col-xs-12 text-center title"><h1>Hosts</h1></div>
+      <div className="block col-xs-12 display-table hosts-info">
+        <div className="col-xs-12 text-center title"><h1>Te llevan a esta mágica aventura:</h1></div>
         <div className="col-xs-12 col-md-8 col-md-offset-2">{presenters}</div>
       </div>
     );
