@@ -12,7 +12,7 @@
 }
 
 .header .nav.navbar-nav li {
-    font-size: 18px;
+    font: 300 1.5em 'Helvetica Neue', sans-serif;
     padding-top: 15px;
     padding-bottom: 15px;
     padding-left: 6px;
